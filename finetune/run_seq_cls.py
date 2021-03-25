@@ -135,7 +135,7 @@ def train(args,
             if args.max_steps > 0 and global_step > args.max_steps:
                 break
 
-        mb.write("Epoch {} done".format(epoch + 1))
+        print("Epoch {} done".format(epoch + 1))
 
         if args.max_steps > 0 and global_step > args.max_steps:
             break
