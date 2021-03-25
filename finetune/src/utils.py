@@ -159,6 +159,8 @@ def compute_metrics(task_name, labels, preds):
         return acc_score(labels, preds)
     elif task_name == "nsmc":
         return acc_score(labels, preds)
+    elif task_name == "malicious":
+        return acc_score(labels, preds)
     elif task_name == "paws":
         return acc_score(labels, preds)
     elif task_name == "korsts":

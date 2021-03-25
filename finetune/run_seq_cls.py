@@ -7,7 +7,7 @@ import glob
 import numpy as np
 import torch
 from torch.utils.data import DataLoader, RandomSampler, SequentialSampler
-from fastprogress.fastprogress import master_bar, progress_bar
+from tqdm import tqdm
 from attrdict import AttrDict
 
 from transformers import (
@@ -75,9 +75,9 @@ def train(args,
     tr_loss = 0.0
 
     model.zero_grad()
-    mb = master_bar(range(int(args.num_train_epochs)))
-    for epoch in mb:
-        epoch_iterator = progress_bar(train_dataloader, parent=mb)
+    # mb = master_bar(range(int(args.num_train_epochs)))
+    for epoch in range(int(args.num_train_epochs)):
+        epoch_iterator = tqdm(train_dataloader, total=len(train_dataloader))
         for step, batch in enumerate(epoch_iterator):
             model.train()
             batch = tuple(t.to(args.device) for t in batch)
@@ -160,7 +160,7 @@ def evaluate(args, model, eval_dataset, mode, global_step=None):
     preds = None
     out_label_ids = None
 
-    for batch in progress_bar(eval_dataloader):
+    for batch in tqdm(eval_dataloader, total=len(eval_dataloader)):
         model.eval()
         batch = tuple(t.to(args.device) for t in batch)
 
