@@ -3,7 +3,7 @@ LABEL maintainer="nlkey2022@gmail.com"
 
 RUN apt update && apt install -y git
 
-ARG MODEL="1YrkwfM-0VBCJaa9NYaXUQPODdGPsmQY4"
+ARG MODEL="1Ed2D_BNawuAQsRscIsbu_rPIm0KdJnpL"
 
 RUN git clone https://github.com/khu-dev/KoELECTRA.git /app/KoELECTRA \
     && cd /app/KoELECTRA/finetune
