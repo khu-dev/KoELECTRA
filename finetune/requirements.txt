@@ -1,6 +1,2 @@
 flask
-torch==1.6.0
-transformers
-seqeval
-fastprogress
-attrdict
+transformers==4.4.2
