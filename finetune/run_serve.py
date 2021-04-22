@@ -56,6 +56,10 @@ def get_malicious_score(input_ids, attention):
             malicious_score.append((token, attention_value))
     return malicious_score
 
+@app.route('/', methods=['GET'])
+def ping():
+    return 'pong'
+
 @app.route('/analyzer', methods=['POST'])
 def analyzer():
     comment = request.json['comment']
