@@ -1,2 +1,2 @@
 cd finetune
-python run_serve.py
+PODOLI_MAX_LENGTH=512 python run_serve.py

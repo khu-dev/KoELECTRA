@@ -8,7 +8,7 @@ from transformers import (ElectraTokenizer, ElectraForSequenceClassification)
 app = Flask(__name__)
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-max_seq_length = 128
+max_seq_length = int(os.getenv("PODOLI_MAX_LENGTH", 128))
 model = ElectraForSequenceClassification.from_pretrained('model')
 model.to(device)
 
