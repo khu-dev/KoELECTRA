@@ -1,3 +1,5 @@
+import os
+
 import torch
 import numpy as np
 from flask import Flask, request, jsonify
@@ -54,6 +56,10 @@ def get_malicious_score(input_ids, attention):
             malicious_score.append((token, attention_value))
     return malicious_score
 
+@app.route('/', methods=['GET'])
+def ping():
+    return 'pong'
+
 @app.route('/analyzer', methods=['POST'])
 def analyzer():
     comment = request.json['comment']
@@ -78,4 +84,4 @@ def analyzer():
         return jsonify(malicious=malicious, malicious_score=malicious_score)
 
 if __name__ == '__main__':
-    app.run(host= '0.0.0.0', debug=True)
+    app.run(host= '0.0.0.0', debug=True, port=int(os.getenv("PORT", "8000")))
