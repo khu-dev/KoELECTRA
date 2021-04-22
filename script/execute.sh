@@ -1,2 +1,2 @@
-cd web
-python app.py
+cd finetune
+python run_serve.py
