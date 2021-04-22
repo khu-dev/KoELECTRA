@@ -1,0 +1,23 @@
+branch-defaults:
+  master:
+    environment: Khumupodolitest-env
+  beanstalk:
+    environment: Khumupodolitest-env
+
+# 뭔 옵션인지... 찾아볼 수가 없네.
+#environment-defaults:
+#  Khumupodolitest-env:
+#    branch: null
+#    repository: null
+global:
+  application_name: khumu_podoli_test
+  default_ec2_keyname: null
+  default_platform: Python 3.7 running on 64bit Amazon Linux 2
+  default_region: ap-northeast-2
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: null
+  sc: git
+  workspace_type: Application
